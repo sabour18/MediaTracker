@@ -1,0 +1,14 @@
+<div class="about-container">
+  <h1 class="about-title">{{title.title}}</h1>
+  <div class="info-container">
+    <div class="poster">
+      <img class="img" src="https://image.tmdb.org/t/p/original/{{title.posterPath}}" [alt]="title.title || 'Movie poster'" />
+    </div>
+    <div class="info">
+      <div class="release-date"><b>Release date:</b> {{title.releaseDate}}</div>
+      <div class="rating"><b>Rating:</b> {{title.voteAverage}}</div>
+      <div class="overview"><b>Overview:</b><br /> &#9;{{title.overview}}</div>
+    </div>
+  </div>
+</div>
+

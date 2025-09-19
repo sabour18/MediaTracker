@@ -1,0 +1,29 @@
+mat-card {
+    padding:15px;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+mat-card-content {
+    padding:40px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content:space-between;
+}
+
+.login-btn {
+  background-color: cornflowerblue;
+  color: white !important;
+}

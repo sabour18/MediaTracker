@@ -1,0 +1,20 @@
+@if(!isAuthenticated){
+<div class="welcome"> Welcome Stranger!</div>
+} @else {
+<div class="welcome"> Welcome {{ username }}!</div>
+}
+
+@for(user of users; track user){
+<div class="user">
+  <div>
+    User Id:
+    {{ user.userId }}
+  </div>
+  <div>
+    Username:
+    {{ user.username }}
+  </div>
+</div>
+}
+
+<app-trending-movies/>
