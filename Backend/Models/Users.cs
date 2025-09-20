@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Backend.Models;
 
-public partial class User
+public partial class Users
 {
     public Guid UserId { get; set; }
 
@@ -13,7 +13,5 @@ public partial class User
 
     public DateTime? CreatedAt { get; set; }
 
-    public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
-
-    public virtual ICollection<WatchedList> WatchedLists { get; set; } = new List<WatchedList>();
+    public virtual ICollection<FavouriteList> FavouriteList { get; set; } = new List<FavouriteList>();
 }

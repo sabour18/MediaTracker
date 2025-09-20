@@ -5,12 +5,14 @@ import { AuthGuard } from './shared/services/auth/auth.guard';
 import { LoginPageComponent } from './modules/login-page/login-page.component';
 import { HomePageComponent } from './modules/home-page/home-page.component';
 import { AboutTitleComponent } from './modules/home-page/components/about-title/about-title.component';
+import { WatchedTitlesComponent } from './modules/home-page/components/watched-titles/watched-titles.component';
 
 // Add canActivate: [AuthGuard] to a route path to restrict non logged in users
 const routes: Routes = [
   { path: '', component: HomePageComponent},
   { path: 'login', component: LoginPageComponent },
-  { path: 'about', component: AboutTitleComponent }
+  { path: 'about', component: AboutTitleComponent },
+  { path: 'watched', component: WatchedTitlesComponent }
 ];
 
 @NgModule({

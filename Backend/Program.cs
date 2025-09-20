@@ -49,6 +49,11 @@ builder.Services.AddMemoryCache();
 // Auth Service
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+// User Service 
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddScoped<IMediaService, MediaService>();
+
 // TMDb Service
 builder.Services.AddHttpClient("TMDbClient", client =>
 {

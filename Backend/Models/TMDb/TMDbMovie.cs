@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Backend.Models.TMDb
 {
-    public class TMDbMovie : Controller
+    public class TMDbMovie
     {
         [JsonProperty("adult")]
         public bool? Adult { get; set; }

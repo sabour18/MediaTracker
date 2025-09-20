@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
 {
-    [Route("TMDb")]
+    [Route("api/[controller]")]
     [AllowAnonymous]
     [ApiController]
     public class TMDbController : ControllerBase

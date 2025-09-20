@@ -2,6 +2,10 @@
   <h1 class="trending-title">Trending Movies</h1>
   <div class="poster-container">
     <div class="poster" *ngFor="let movie of trendingMovies; let i = index">
+      <div class="fav-icon" *ngIf="isAuthenticated" (click)="saveFavouriteTitle(movie)">
+        <i class="icon bi bi-heart fs-3"></i>
+
+      </div>
       <a (click)="selectMovie(movie)">
         <img class="img" src="https://image.tmdb.org/t/p/original/{{movie.posterPath}}" [alt]="movie.title || 'Movie poster'" />
       </a>

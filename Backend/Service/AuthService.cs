@@ -28,7 +28,7 @@ namespace Backend.Service
             {
                 return null;
             }
-            if (new PasswordHasher<User>().VerifyHashedPassword(user, user.Password, request.Password) == PasswordVerificationResult.Failed)
+            if (new PasswordHasher<Users>().VerifyHashedPassword(user, user.Password, request.Password) == PasswordVerificationResult.Failed)
             {
                 return null;
             }
@@ -45,16 +45,16 @@ namespace Backend.Service
             return response;
         }
 
-        public async Task<User?> RegisterAsync(UserDto request)
+        public async Task<Users?> RegisterAsync(UserDto request)
         {
             if (await _dbContext.Users.AnyAsync(u => u.Username == request.Username))
             {
                 return null;
             }
 
-            User user = new User();
+            Users user = new Users();
 
-            var hashedPassword = new PasswordHasher<User>()
+            var hashedPassword = new PasswordHasher<Users>()
                 .HashPassword(user, request.Password);
 
             user.UserId = Guid.NewGuid();
@@ -67,7 +67,7 @@ namespace Backend.Service
             return user;
         }
 
-        private string CreateToken(User user)
+        private string CreateToken(Users user)
         {
             var claims = new List<Claim>
             {

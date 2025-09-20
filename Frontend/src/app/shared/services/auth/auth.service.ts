@@ -44,12 +44,16 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-  getCurrentUser(): Observable<{ userId: string; username: string } | null> {
-    return this.currentUserSubject.asObservable();
+  getCurrentUser(): { userId: string; username: string } | null {
+    return this.currentUserSubject.value;
   }
 
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
+  }
+
+  getUserId() {
+
   }
 
   isAuthenticated(): Observable<boolean> {

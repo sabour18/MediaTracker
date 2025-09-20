@@ -4,9 +4,7 @@
   </div>
   <div class="nav-links">
     <a class="nav-link" routerLink="/">Home</a>
-    <a class="nav-link" routerLink="/login">Reviews</a>
-    <a class="nav-link" routerLink="/login">Watched</a>
-    <a class="nav-link" routerLink="/login">Search</a>
+    <a class="nav-link" [routerLink]="isAuthenticated ? ['/watched'] : ['/login']">Watched List</a>
   </div>
   <mat-toolbar >
     <div class="search-bar-container">

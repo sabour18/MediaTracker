@@ -9,5 +9,7 @@ public partial class MediaType
 
     public string Name { get; set; } = null!;
 
-    public virtual ICollection<Medium> Media { get; set; } = new List<Medium>();
+    public virtual ICollection<FavouriteList> FavouriteList { get; set; } = new List<FavouriteList>();
+
+    public virtual ICollection<Media> Media { get; set; } = new List<Media>();
 }

@@ -6,12 +6,14 @@ import { HomePageComponent } from './home-page.component';
 import { TrendingMoviesComponent } from './components/trending-movies/trending-movies.component';
 import { AboutTitleComponent } from './components/about-title/about-title.component';
 import { RouterModule } from '@angular/router';
+import { WatchedTitlesComponent } from './components/watched-titles/watched-titles.component';
 
 @NgModule({
   declarations: [
     HomePageComponent,
     TrendingMoviesComponent,
-    AboutTitleComponent
+    AboutTitleComponent,
+    WatchedTitlesComponent
   ],
   imports: [
     CommonModule,

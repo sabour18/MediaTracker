@@ -28,7 +28,7 @@ namespace Backend.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<User>> Register(UserDto request)
+        public async Task<ActionResult<Users>> Register(UserDto request)
         {
             var user = await _authService.RegisterAsync(request);
 

@@ -1,0 +1,7 @@
+<p>watched-titles works!</p>
+
+<div class="poster" *ngFor="let title of favouriteTitles; let i = index">
+  <a>
+    <img class="img" src="https://image.tmdb.org/t/p/original/{{title.posterPath}}" [alt]="title.title || 'Movie poster'" />
+  </a>
+</div>
