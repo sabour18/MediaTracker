@@ -9,7 +9,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\app\modules\home-page\components\" />
-    <Folder Include="src\app\modules\login-page\components\" />
     <Folder Include="src\app\shared\services\user\" />
     <Folder Include="src\app\shared\components\" />
     <Folder Include="src\app\shared\pipes\" />

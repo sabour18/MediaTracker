@@ -7,13 +7,14 @@ import { LoginPageComponent } from './modules/login-page/login-page.component';
 import { HomePageComponent } from './modules/home-page/home-page.component';
 import { AboutTitleComponent } from './modules/home-page/components/about-title/about-title.component';
 import { WatchedTitlesComponent } from './modules/home-page/components/watched-titles/watched-titles.component';
+import { LoginComponent } from './modules/login-page/components/login/login.component';
 import { RegisterComponent } from './modules/login-page/components/register/register.component';
 
 // Add canActivate: [AuthGuard] to a route path to restrict non logged in users
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'about', component: AboutTitleComponent },
-  { path: 'login', component: LoginPageComponent, canActivate: [GuestGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
   { path: 'watched', component: WatchedTitlesComponent, canActivate: [AuthGuard] }
 ];

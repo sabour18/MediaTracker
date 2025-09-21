@@ -17,6 +17,10 @@ export class LoginPageComponent {
     this.authService.login(credentials).subscribe({
       next: () => this.router.navigate(['/']),
       error: (err) => alert('Invalid username or password.')
-    });
+    });   
+  }
+
+  onRegister(credentials: { username: string; password: string }) {
+
   }
 }

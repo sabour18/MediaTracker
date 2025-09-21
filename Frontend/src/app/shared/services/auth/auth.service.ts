@@ -35,6 +35,20 @@ export class AuthService {
     );
   }
 
+  register(credentials: { username: string; password: string }): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${this.apiUrl}/register`, credentials).pipe(
+      tap(response => {
+        // Store token, userId, and username immediately after registration
+        localStorage.setItem(this.tokenKey, response.token);
+        localStorage.setItem(this.userIdKey, response.userId);
+        localStorage.setItem(this.usernameKey, response.username);
+
+        // Update auth state
+        this.currentUserSubject.next({ userId: response.userId, username: response.username });
+        this.authStatus.next(true);
+      })
+    );
+  }
 
   logout(): void {
     localStorage.removeItem(this.tokenKey);
