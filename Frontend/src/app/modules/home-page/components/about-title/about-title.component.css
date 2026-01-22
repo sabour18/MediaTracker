@@ -19,16 +19,27 @@
 }
 
   .poster img {
-    margin: 15px 0;
     width: 15rem;
     height: auto;
     transition: 0.1s;
   }
 
-  .info-container{
-      display: flex;
-  }
+.info-container {
+  display: flex;
+  margin: 15px 0;
+}
 
-.release-date, .rating, .overview{
+  .info{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
     margin:9px 0 0 15px;
 }
+
+  .btn-group{
+
+  }
+
+  .backlog-btn{
+      width:20%;
+  }
