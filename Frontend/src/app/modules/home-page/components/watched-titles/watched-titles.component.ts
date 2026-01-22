@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MovieService } from '../../../../shared/services/media/movie.service';
-import { TMDbMovie } from '../../../../shared/models/TMDbMovie';
+import { DBMovie } from '../../../../shared/models/DBMovie';
 
 @Component({
   selector: 'app-watched-titles',
@@ -8,16 +8,17 @@ import { TMDbMovie } from '../../../../shared/models/TMDbMovie';
   styleUrl: './watched-titles.component.css'
 })
 export class WatchedTitlesComponent {
-  favouriteTitles: TMDbMovie[] = [];
+  watchedTitles: DBMovie[] = [];
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.getFavouriteTitles();
+    this.getWatchedTitles();
   }
 
-  getFavouriteTitles() {
-    this.movieService.getFavouriteTitles()
-    .subscribe((favouriteTitles: TMDbMovie[]) => this.favouriteTitles = favouriteTitles);
+
+  getWatchedTitles() {
+    this.movieService.getWatchedTitles()
+      .subscribe((watchedTitles: DBMovie[]) => this.watchedTitles = watchedTitles);
   }
 }

@@ -1,11 +1,10 @@
-export interface TMDbMovie {
-  adult: boolean;
-  backdropPath: string;
-  id: number;
+export interface DBMovie {
+  mediaId: number;
   title: string;
   originalTitle: string;
   overview: string;
   posterPath: string;
+  backdropPath: string;
   mediaType: string;
   originalLanguage: string;
   popularity: number;

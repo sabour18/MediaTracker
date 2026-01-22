@@ -79,25 +79,34 @@ namespace Backend.Service
             }
             else
             {
-                // Check if title is already favourited by the user
-                var isInFavourites = favouriteTitles.Any(t => t.MediaId == favouriteDto.Title.Id);
+                var favouriteEntry = await _dbContext.FavouriteList
+                    .FirstOrDefaultAsync(f =>
+                        f.UserId == favouriteDto.UserId &&
+                        f.MediaId == favouriteDto.Title.Id
+                    );
 
                 // TODO: Unfavourite the Title
-                if (isInFavourites)
+                if (favouriteEntry != null)
                 {
+                    _dbContext.FavouriteList.Remove(favouriteEntry);
+                    _dbContext.SaveChanges();
+
                     return new { Message = "Title already in favourites." };
                 }
-
-                // Add the title to favourites list
-                var newFavourite = new FavouriteList
+                else
                 {
-                    FavouritesId = Guid.NewGuid(),
-                    UserId = favouriteDto.UserId,
-                    MediaId = mediaEntity.MediaId,
-                    TypeId = null
-                };
+                    // Add the title to favourites list
+                    var newFavourite = new FavouriteList
+                    {
+                        FavouritesId = Guid.NewGuid(),
+                        UserId = favouriteDto.UserId,
+                        MediaId = mediaEntity.MediaId,
+                        TypeId = null
+                    };
 
-                _dbContext.FavouriteList.Add(newFavourite);
+                    _dbContext.FavouriteList.Add(newFavourite);
+                }
+                   
                 _dbContext.SaveChanges();
             }
                 

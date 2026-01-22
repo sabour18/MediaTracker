@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TMDbMovie } from '../../../../shared/models/TMDbMovie';
+import { DBMovie } from '../../../../shared/models/DBMovie';
 import { MovieService } from '../../../../shared/services/media/movie.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../../shared/services/auth/auth.service';
@@ -12,7 +13,7 @@ import { AuthService } from '../../../../shared/services/auth/auth.service';
 export class TrendingMoviesComponent {
   isAuthenticated: boolean = false;
   trendingMovies: TMDbMovie[] = [];
-  favouritedTitles: any[] = [];
+  watchedTitles: DBMovie[] = [];
 
   constructor(private movieService: MovieService, private authService: AuthService, private router: Router) { }
 
@@ -21,6 +22,10 @@ export class TrendingMoviesComponent {
     this.authService.isAuthenticated().subscribe(isAuthenticated => {
       this.isAuthenticated = isAuthenticated;
     });
+
+    this.getWatchedTitles();
+
+    console.log(this.watchedTitles);
   }
 
   getTrendingMovies() {
@@ -32,11 +37,19 @@ export class TrendingMoviesComponent {
     this.movieService.saveFavouriteTitle(title);
   }
 
-  getFavouritedTitles() {
+  // currently loaded on home and watched list
+  // can maybe store into a store? (havent done in angular)
+  getWatchedTitles() {
+    this.movieService.getWatchedTitles()
+      .subscribe((watchedTitles: DBMovie[]) => this.watchedTitles = watchedTitles);
   }
 
-  selectMovie(movie: any) {
+  selectMovie(movie: TMDbMovie) {
     this.movieService.setAboutTitle(movie);
     this.router.navigate(['/about']);
+  }
+
+  isInWatched(movie: TMDbMovie) {
+    return this.watchedTitles.some(watched => watched.mediaId === movie.id);
   }
 }

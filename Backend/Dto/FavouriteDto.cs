@@ -8,5 +8,6 @@ namespace Backend.Dto
     {
         public Guid UserId { get; set; }
         public TMDbMovie Title { get; set; }
+        public bool IsWatched { get; set; }
     }
 }

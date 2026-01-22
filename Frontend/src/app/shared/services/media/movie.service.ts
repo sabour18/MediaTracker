@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TMDbMovie } from '../../models/TMDbMovie';
 import { AuthService } from '../auth/auth.service';
+import { DBMovie } from '../../models/DBMovie';
 
 @Injectable({
   providedIn: 'root'
@@ -24,13 +25,14 @@ export class MovieService {
     return this.selectedTitle;
   }
 
-  saveFavouriteTitle(title: any) {
+  saveFavouriteTitle(title: TMDbMovie) {
     const userId = localStorage.getItem('user_id')
 
     const body = {
-      title: title,
-      userId: userId
+      userId: userId,
+      title: title
     };
+    console.log(body);
     this.http.post(`${this.baseUrl}media/saveFavourite`, body)
       .subscribe({
         next: (res) => console.log('Saved successfully', res),
@@ -38,9 +40,9 @@ export class MovieService {
       });
   }
 
-  getFavouriteTitles(): Observable<TMDbMovie[]> {
+  getWatchedTitles(): Observable<DBMovie[]> {
     const userId = localStorage.getItem('user_id')
-    return this.http.get<TMDbMovie[]>(`${this.baseUrl}Users/favourites`, {
+    return this.http.get<DBMovie[]>(`${this.baseUrl}Users/favourites`, {
       params: { userId: userId || '' }
     });
   }
