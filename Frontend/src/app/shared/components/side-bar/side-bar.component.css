@@ -1,0 +1,20 @@
+.side-container{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width:12%;
+    background-color:grey;
+    padding:20px;
+}
+
+.option-list {
+  padding: 0;
+  color: white;
+  list-style: none;
+  padding-top: 70px;
+}
+
+a{
+    cursor:pointer;
+}
