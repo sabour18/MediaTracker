@@ -1,9 +1,20 @@
+
 <div class="side-container">
+  @if(!isAuthenticated){
+  <div class="welcome"> Welcome Stranger!</div>
+  } @else {
+  <div class="welcome"> Welcome {{ username }}!</div>
+  }
+
   <ul class="option-list">
-    <li><a>Trending</a></li><hr width="100%" >
-    <li><a>Reviews</a></li><hr size="2">
-    <li><a>Watched</a></li><hr width="100%" size="2">
-    <li><a>Backlog</a></li><hr width="100%" size="2">
+    <li><a>Trending</a></li>
+    <hr width="100%">
+    <li><a>Reviews</a></li>
+    <hr size="2">
+    <li><a>Watched</a></li>
+    <hr width="100%" size="2">
+    <li><a>Backlog</a></li>
+    <hr width="100%" size="2">
     <li><a>Other</a></li>
   </ul>
 </div>
