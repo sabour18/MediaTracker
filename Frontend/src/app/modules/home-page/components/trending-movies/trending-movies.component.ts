@@ -24,8 +24,6 @@ export class TrendingMoviesComponent {
     });
 
     this.getWatchedTitles();
-
-    console.log(this.watchedTitles);
   }
 
   getTrendingMovies() {

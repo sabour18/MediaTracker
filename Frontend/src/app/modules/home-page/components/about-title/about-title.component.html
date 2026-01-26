@@ -11,7 +11,7 @@
         <div class="overview"><b>Overview:</b><br /> &#9;{{title.overview}}</div>
       </div>
 
-      <div class="btn-group">
+      <div class="btn-group" *ngIf="isAuthenticated">
         <button type="button" class="backlog-btn btn btn-success">Add to Watched</button>
         <button type="button" class="backlog-btn btn btn-danger">Remove from Watched</button>
         <button type="button" class="backlog-btn btn btn-secondary">Add to Backlog</button>
