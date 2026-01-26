@@ -11,16 +11,25 @@
 }
 
 .welcome{
-    font-size:larger;
+  font-size:larger;
   margin:auto;
   margin-bottom:20px;
 }
 
 .option-list {
+    position:fixed;
+    top:30%;
+    width:calc(12% - 20px - 20px);
   padding: 0;
   list-style: none;
 }
 
-a{
-    cursor:pointer;
+.option-link {
+    color:white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.option-link:hover{
+    color:darkorange;
 }
